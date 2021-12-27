@@ -1,28 +1,22 @@
 /*
- * To change this license ScreenHeaderP, choose License Headers in Project Properties.
+ * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package atm;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
 /**
  *
  * @author Dell
  */
-public class Login extends JFrame implements ActionListener{
+public class MoreOptions extends JFrame implements ActionListener{
     Color Background =new Color(60, 70, 92);// set Background Color(60, 70, 92)
     //frame stuff
     JPanel BaseP,ScreenP, ScreenHeaderP, ScreenCenterP, ScreenCenterDialogueP, ScreenCenterButtonsP, WestButtonsP,EastButtonsP,p8;
-    //TextField pin;
-    final JPasswordField pin;// finel to not change
-    JButton ClearB,LoginB;
-    JLabel WelcomeHeaderL, PinQL;
+    JLabel WelcomeHeaderL;
     //EastButtons anw westButtons
     JButton b[]=new JButton[8];
     //Buttons number and enter and clear and exit
@@ -30,7 +24,7 @@ public class Login extends JFrame implements ActionListener{
     //MenuBar
     static MenuBar menu;
     Menu m;
-    public Login(){
+    public MoreOptions(){
         //MenuBar
         menu = new MenuBar();
         m = new Menu("File");
@@ -63,7 +57,7 @@ public class Login extends JFrame implements ActionListener{
         WelcomeHeaderL.setForeground(new Color(0, 153, 0));
         //l1.setOpaque(true);
         //l1.setBorder(new LineBorder(Color.white));
-        WelcomeHeaderL.setBackground(Color.white);
+        WelcomeHeaderL.setBackground(Color.WHITE);
         ScreenHeaderP.setBackground(Color.white);
         ScreenHeaderP.add(WelcomeHeaderL);
         //p1.setBounds(WIDTH, WIDTH, WIDTH, HEIGHT);
@@ -73,51 +67,60 @@ public class Login extends JFrame implements ActionListener{
         //panel 3 ScreenCenterP <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         ScreenCenterP = new JPanel(new GridLayout(2, 1));
         ScreenCenterP.setBackground(Background);
-        //p4 for  label and textfild
+        //ScreenCenterP.setLayout(null);
+        //op Knowing the balance, withdrawing and depositing, changing the password
         ScreenCenterDialogueP= new JPanel();//new GridLayout(2, 1)
         ScreenCenterDialogueP.setBackground(Background);
         ScreenCenterDialogueP.setLayout(null);
+        //p4 for  label 
         //label
-        PinQL=new JLabel("Please enter your pin", SwingConstants.CENTER);//label 2
-        PinQL.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
-        PinQL.setForeground( Color.WHITE);
-        PinQL.setBounds(50, 0, 500, 68);
-        //TextField
-        //https://www.zentut.com/java-swing/creating-password-field-by-using-jpasswordfield-class/
-        //t1=new TextField("");
-        pin = new JPasswordField();//JPasswordField
-        pin.setBounds(230, 70, 125, 68);
-        pin.setColumns(4);//pin is 4 num
-        pin.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
-        PinQL.setLabelFor(pin);
-        //add PinQL and pin
-        ScreenCenterDialogueP.add(PinQL);//add label 2
-        ScreenCenterDialogueP.add(pin);//add JPasswordField
+        JLabel StartL =new JLabel("Choose your process?", SwingConstants.CENTER);//label 2
+        StartL.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
+        StartL.setForeground( Color.WHITE);
+        StartL.setBounds(50, 0, 500, 68);
+        ScreenCenterDialogueP.add(StartL);//add label 2
         //p5 for Button 
         ScreenCenterButtonsP= new JPanel();
         ScreenCenterButtonsP.setBackground(Background);
-        //Button ClearB
-        ClearB=new JButton("Clear");
-        ClearB.setPreferredSize(new Dimension(150, 50));
-        ClearB.setBackground(Color.white );
-        ClearB.setFont(new Font("Times", Font.BOLD, 20));
-        ClearB.setForeground(new Color(255, 153, 0));
-        ClearB.setBounds(0, 65, 290, 68);
-        //Button LoginB
-        LoginB=new JButton("Login");
-        LoginB.setPreferredSize(new Dimension(150, 50));
-        LoginB.setBackground(Color.white );
-        LoginB.setFont(new Font("Times", Font.BOLD, 20));
-        LoginB.setForeground(new Color(0, 153, 0));
-        LoginB.setBounds(298, 65, 290, 68);
+         //Button KnowingthebalanceB
+        JButton KnowingthebalanceB=new JButton("Knowing the balance");
+        KnowingthebalanceB.setPreferredSize(new Dimension(150, 50));
+        KnowingthebalanceB.setBackground(Color.white );
+        KnowingthebalanceB.setFont(new Font("Times", Font.BOLD, 20));
+        KnowingthebalanceB.setForeground(Color.BLACK);
+        KnowingthebalanceB.setBounds(0, 0, 290, 68);
+        //Button WithdrawingB
+        JButton WithdrawingB=new JButton("Withdrawing");
+        WithdrawingB.setPreferredSize(new Dimension(150, 50));
+        WithdrawingB.setBackground(Color.white );
+        WithdrawingB.setFont(new Font("Times", Font.BOLD, 20));
+        WithdrawingB.setForeground(Color.BLACK);
+        WithdrawingB.setBounds(298, 0, 290, 68);
+        //Button DepositingB
+        JButton DepositingB=new JButton("Depositing");
+        DepositingB.setPreferredSize(new Dimension(150, 50));
+        DepositingB.setBackground(Color.white );
+        DepositingB.setFont(new Font("Times", Font.BOLD, 20));
+        DepositingB.setForeground(Color.BLACK);
+        DepositingB.setBounds(0, 65, 290, 68);
+        //Button CPassword
+        JButton CPassword=new JButton("changing the password");
+        CPassword.setPreferredSize(new Dimension(150, 50));
+        CPassword.setBackground(Color.white );
+        CPassword.setFont(new Font("Times", Font.BOLD, 20));
+        CPassword.setForeground(Color.BLACK);
+        CPassword.setBounds(298, 65, 290, 68);
         
-        ScreenCenterButtonsP.add(ClearB);
-        ScreenCenterButtonsP.add(LoginB);
+        
+        ScreenCenterButtonsP.add(KnowingthebalanceB);
+        ScreenCenterButtonsP.add(WithdrawingB);
+        ScreenCenterButtonsP.add(DepositingB);
+        ScreenCenterButtonsP.add(CPassword);
         ScreenCenterButtonsP.setLayout(null);
         //add in ScreenCenterP
         ScreenCenterP.add(ScreenCenterDialogueP);//p3 add ScreenCenterDialogueP for label and textfild 
         ScreenCenterP.add(ScreenCenterButtonsP);//p3 add ScreenCenterButtonsP for Button 
-        ScreenP.add(ScreenCenterP,BorderLayout.CENTER);
+        ScreenP.add(ScreenCenterP,BorderLayout.CENTER);//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         //west button
         WestButtonsP = new JPanel(new GridLayout(4, 1));
         for (int i=0;i<=3;i++){
