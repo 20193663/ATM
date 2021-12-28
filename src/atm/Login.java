@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
  * @author Dell
  */
 public class Login extends JFrame implements ActionListener{
+    protected static String password ="0000";// password need more work
     Color Background =new Color(60, 70, 92);// set Background Color(60, 70, 92)
     //frame stuff
     JPanel BaseP,ScreenP, ScreenHeaderP, ScreenCenterP, ScreenCenterDialogueP, ScreenCenterButtonsP, WestButtonsP,EastButtonsP,p8;
@@ -90,6 +91,7 @@ public class Login extends JFrame implements ActionListener{
         pin.setColumns(4);//pin is 4 num
         pin.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
         PinQL.setLabelFor(pin);
+        pin.addActionListener(this);
         //add PinQL and pin
         ScreenCenterDialogueP.add(PinQL);//add label 2
         ScreenCenterDialogueP.add(pin);//add JPasswordField
@@ -103,6 +105,7 @@ public class Login extends JFrame implements ActionListener{
         ClearB.setFont(new Font("Times", Font.BOLD, 20));
         ClearB.setForeground(new Color(255, 153, 0));
         ClearB.setBounds(0, 65, 290, 68);
+        ClearB.addActionListener(this);
         //Button LoginB
         LoginB=new JButton("Login");
         LoginB.setPreferredSize(new Dimension(150, 50));
@@ -110,6 +113,7 @@ public class Login extends JFrame implements ActionListener{
         LoginB.setFont(new Font("Times", Font.BOLD, 20));
         LoginB.setForeground(new Color(0, 153, 0));
         LoginB.setBounds(298, 65, 290, 68);
+        LoginB.addActionListener(this);
         
         ScreenCenterButtonsP.add(ClearB);
         ScreenCenterButtonsP.add(LoginB);
@@ -126,6 +130,7 @@ public class Login extends JFrame implements ActionListener{
             b[i].setBackground(Background);
             //b[i].setPreferredSize(new Dimension(30, 50));
             WestButtonsP.add(b[i]);
+            b[i].addActionListener(this);
         }
         ScreenP.add(WestButtonsP,BorderLayout.WEST);
         EastButtonsP = new JPanel(new GridLayout(4, 1));
@@ -135,6 +140,7 @@ public class Login extends JFrame implements ActionListener{
             b[i].setBackground(Background);
             //b[i].setPreferredSize(new Dimension(30, 50));
             EastButtonsP.add(b[i]);
+            b[i].addActionListener(this);
         }
         ScreenP.add(EastButtonsP,BorderLayout.EAST);
         BaseP.add(ScreenP);
@@ -176,6 +182,7 @@ public class Login extends JFrame implements ActionListener{
                 }
             }
             B[i-1].setFont(new Font("Times", Font.BOLD, 15));
+            B[i-1].addActionListener(this);
             p8.add(B[i-1]);
         }
         BaseP.add(p8);
@@ -190,7 +197,82 @@ public class Login extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        System.out.println(e.getActionCommand());
+        System.out.println(e.getSource());
+        System.out.println(pin.getPassword());
+        //.getPassword() to git increbt password
+        switch (e.getActionCommand()) {
+            case "Login":
+            case "Enter":
+                //case "<=":
+                //MoreOptions
+                //op Knowing the balance, withdrawing and depositing, changing the password
+                if((pin.getText()).equals(password)){
+                    System.out.println(pin.getPassword());
+                    MoreOptions MoreOptions=new MoreOptions();
+                    this.dispose();
+                }
+                else {
+                    JOptionPane.showMessageDialog(this,"Password is incorect","password",JOptionPane.WARNING_MESSAGE);
+                }
+                break;
+            case "Clear":
+                pin.setText("");
+                break;
+            case "Exit":
+            //case "=>":
+                System.exit(0);
+                break;
     
+            case "0":
+                pin.setText(pin.getText()+0);
+                break;
+            case "1":
+                pin.setText(pin.getText()+1);
+                break;
+            case "2":
+                pin.setText(pin.getText()+2);
+                break;
+            case "3":
+                pin.setText(pin.getText()+3);
+                break;
+            case "4":
+                pin.setText(pin.getText()+4);
+                break;
+            case "5":
+                pin.setText(pin.getText()+5);
+                break;
+            case "6":
+                pin.setText(pin.getText()+6);
+                break;
+            case "7":
+                pin.setText(pin.getText()+7);
+                break;
+            case "8":
+                pin.setText(pin.getText()+8);
+                break;
+            case "9":
+                pin.setText(pin.getText()+9);
+                break;
+        }
+        
+     if(e.getSource() == b[7] )
+     {
+         // getString();
+         if((pin.getText()).equals(password)){
+                    System.out.println(pin.getPassword());
+                    MoreOptions MoreOptions=new MoreOptions();
+                    this.dispose();
+                }
+        else {
+             JOptionPane.showMessageDialog(this,"Password is incorect","password",JOptionPane.WARNING_MESSAGE);
+         }
+     }
+     else if(e.getSource() == b[3] ){
+         pin.setText("");
+     }
+    }
+    //https://www.geeksforgeeks.org/java-swing-creating-custom-message-dialogs/?ref=lbp need to see add do like
+    //https://www.zentut.com/java-swing/creating-password-field-by-using-jpasswordfield-class/
+    //
 }
