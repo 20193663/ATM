@@ -28,16 +28,16 @@ public class ATM {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         */
         //Login
-        Login Login = new Login();
+        //Login Login = new Login();
         //MainPage
         MainPage MainPage = new MainPage();
-        //MoreOptions()
+        //MoreOptions
         //op Knowing the balance, withdrawing and depositing, changing the password
-        MoreOptions MoreOptions=new MoreOptions();
-        //Knowingthebalance
-        Knowingthebalance Knowingthebalance=new Knowingthebalance();
-        //Withdrawing
-        Withdrawing Withdrawing=new Withdrawing();
+//        MoreOptions MoreOptions=new MoreOptions();
+//        //Knowingthebalance
+//        Knowingthebalance Knowingthebalance =new Knowingthebalance();
+//        //Withdrawing
+//        Withdrawing Withdrawing=new Withdrawing();
         //Depositing
         
         //changing the password

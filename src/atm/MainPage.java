@@ -89,6 +89,7 @@ public class MainPage extends JFrame implements ActionListener{
         ExitB.setFont(new Font("Times", Font.BOLD, 20));
         ExitB.setForeground(new Color(153, 0, 0));
         ExitB.setBounds(0, 65, 290, 68);
+        ExitB.addActionListener(this);
         //Button StartB
         JButton StartB=new JButton("Start");
         StartB.setPreferredSize(new Dimension(150, 50));
@@ -96,6 +97,7 @@ public class MainPage extends JFrame implements ActionListener{
         StartB.setFont(new Font("Times", Font.BOLD, 20));
         StartB.setForeground(new Color(0, 153, 0));
         StartB.setBounds(298, 65, 290, 68);
+        StartB.addActionListener(this);
         
         ScreenCenterButtonsP.add(ExitB);
         ScreenCenterButtonsP.add(StartB);
@@ -176,7 +178,16 @@ public class MainPage extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch (e.getActionCommand()) {
+            case "Start":
+                //Login
+                Login Login = new Login();
+                this.dispose();
+                break;
+            case "Exit":
+                System.exit(0);
+                break;
+        }
     }
     
 }
