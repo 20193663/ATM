@@ -87,6 +87,7 @@ public class Withdrawing extends JFrame implements ActionListener{
         B100.setForeground(Color.BLACK);
         B100.setBounds(0, 65, 290, 68);
         ScreenCenterDialogueP.add(B100);
+        B100.addActionListener(this);
         //Button B500
         JButton B500=new JButton("500");
         B500.setPreferredSize(new Dimension(150, 50));
@@ -95,6 +96,7 @@ public class Withdrawing extends JFrame implements ActionListener{
         B500.setForeground(Color.BLACK);
         B500.setBounds(298, 65, 290, 68);
         ScreenCenterDialogueP.add(B500);
+        B500.addActionListener(this);
         //p5 for Button 
         ScreenCenterButtonsP= new JPanel();
         ScreenCenterButtonsP.setBackground(Background);
@@ -105,6 +107,7 @@ public class Withdrawing extends JFrame implements ActionListener{
         B1000.setFont(new Font("Times", Font.BOLD, 20));
         B1000.setForeground(Color.BLACK);
         B1000.setBounds(0, 0, 290, 68);
+        B1000.addActionListener(this);
         //Button B2000
         JButton B2000=new JButton("2000");
         B2000.setPreferredSize(new Dimension(150, 50));
@@ -112,6 +115,7 @@ public class Withdrawing extends JFrame implements ActionListener{
         B2000.setFont(new Font("Times", Font.BOLD, 20));
         B2000.setForeground(Color.BLACK);
         B2000.setBounds(298, 0, 290, 68);
+        B2000.addActionListener(this);
         //Button B5000
         JButton B5000=new JButton("5000");
         B5000.setPreferredSize(new Dimension(150, 50));
@@ -119,6 +123,7 @@ public class Withdrawing extends JFrame implements ActionListener{
         B5000.setFont(new Font("Times", Font.BOLD, 20));
         B5000.setForeground(Color.BLACK);
         B5000.setBounds(0, 65, 290, 68);
+        B5000.addActionListener(this);
         //Button SetBalance
         JButton SetBalance=new JButton("Set Balance");
         SetBalance.setPreferredSize(new Dimension(150, 50));
@@ -126,7 +131,7 @@ public class Withdrawing extends JFrame implements ActionListener{
         SetBalance.setFont(new Font("Times", Font.BOLD, 20));
         SetBalance.setForeground(Color.BLACK);
         SetBalance.setBounds(298, 65, 290, 68);
-        
+        SetBalance.addActionListener(this);
         
         ScreenCenterButtonsP.add(B1000);
         ScreenCenterButtonsP.add(B2000);
@@ -145,6 +150,7 @@ public class Withdrawing extends JFrame implements ActionListener{
             b[i].setBackground(Background);
             //b[i].setPreferredSize(new Dimension(30, 50));
             WestButtonsP.add(b[i]);
+            b[i].addActionListener(this);
         }
         ScreenP.add(WestButtonsP,BorderLayout.WEST);
         EastButtonsP = new JPanel(new GridLayout(4, 1));
@@ -154,6 +160,7 @@ public class Withdrawing extends JFrame implements ActionListener{
             b[i].setBackground(Background);
             //b[i].setPreferredSize(new Dimension(30, 50));
             EastButtonsP.add(b[i]);
+            b[i].addActionListener(this);
         }
         ScreenP.add(EastButtonsP,BorderLayout.EAST);
         BaseP.add(ScreenP);
@@ -196,6 +203,7 @@ public class Withdrawing extends JFrame implements ActionListener{
             }
             B[i-1].setFont(new Font("Times", Font.BOLD, 15));
             p8.add(B[i-1]);
+            B[i-1].addActionListener(this);
         }
         BaseP.add(p8);
         this.add(BaseP);

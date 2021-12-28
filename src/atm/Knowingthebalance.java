@@ -87,6 +87,7 @@ public class Knowingthebalance extends JFrame implements ActionListener{
         BalanceT.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
         StartL.setLabelFor(BalanceT);
          ScreenCenterDialogueP.add(BalanceT);//add TextField
+         BalanceT.addActionListener(this);
         //p5 for Button 
         ScreenCenterButtonsP= new JPanel();
         ScreenCenterButtonsP.setBackground(Background);
@@ -97,6 +98,7 @@ public class Knowingthebalance extends JFrame implements ActionListener{
         ExitB.setFont(new Font("Times", Font.BOLD, 20));
         ExitB.setForeground(new Color(153, 0, 0));
         ExitB.setBounds(0, 65, 290, 68);
+        ExitB.addActionListener(this);
         //Button DoneB
         JButton DoneB=new JButton("Done");
         DoneB.setPreferredSize(new Dimension(150, 50));
@@ -104,6 +106,7 @@ public class Knowingthebalance extends JFrame implements ActionListener{
         DoneB.setFont(new Font("Times", Font.BOLD, 20));
         DoneB.setForeground(new Color(0, 153, 0));
         DoneB.setBounds(298, 65, 290, 68);
+        DoneB.addActionListener(this);
         
         ScreenCenterButtonsP.add(ExitB);
         ScreenCenterButtonsP.add(DoneB);
@@ -120,6 +123,7 @@ public class Knowingthebalance extends JFrame implements ActionListener{
             b[i].setBackground(Background);
             //b[i].setPreferredSize(new Dimension(30, 50));
             WestButtonsP.add(b[i]);
+            b[i].addActionListener(this);
         }
         ScreenP.add(WestButtonsP,BorderLayout.WEST);
         EastButtonsP = new JPanel(new GridLayout(4, 1));
@@ -129,6 +133,7 @@ public class Knowingthebalance extends JFrame implements ActionListener{
             b[i].setBackground(Background);
             //b[i].setPreferredSize(new Dimension(30, 50));
             EastButtonsP.add(b[i]);
+            b[i].addActionListener(this);
         }
         ScreenP.add(EastButtonsP,BorderLayout.EAST);
         BaseP.add(ScreenP);
@@ -171,6 +176,7 @@ public class Knowingthebalance extends JFrame implements ActionListener{
             }
             B[i-1].setFont(new Font("Times", Font.BOLD, 15));
             p8.add(B[i-1]);
+            B[i-1].addActionListener(this);
         }
         BaseP.add(p8);
         this.add(BaseP);

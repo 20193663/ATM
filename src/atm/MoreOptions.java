@@ -89,6 +89,7 @@ public class MoreOptions extends JFrame implements ActionListener{
         KnowingthebalanceB.setFont(new Font("Times", Font.BOLD, 20));
         KnowingthebalanceB.setForeground(Color.BLACK);
         KnowingthebalanceB.setBounds(0, 0, 290, 68);
+        KnowingthebalanceB.addActionListener(this);
         //Button WithdrawingB
         JButton WithdrawingB=new JButton("Withdrawing");
         WithdrawingB.setPreferredSize(new Dimension(150, 50));
@@ -96,6 +97,7 @@ public class MoreOptions extends JFrame implements ActionListener{
         WithdrawingB.setFont(new Font("Times", Font.BOLD, 20));
         WithdrawingB.setForeground(Color.BLACK);
         WithdrawingB.setBounds(298, 0, 290, 68);
+        WithdrawingB.addActionListener(this);
         //Button DepositingB
         JButton DepositingB=new JButton("Depositing");
         DepositingB.setPreferredSize(new Dimension(150, 50));
@@ -103,6 +105,7 @@ public class MoreOptions extends JFrame implements ActionListener{
         DepositingB.setFont(new Font("Times", Font.BOLD, 20));
         DepositingB.setForeground(Color.BLACK);
         DepositingB.setBounds(0, 65, 290, 68);
+        DepositingB.addActionListener(this);
         //Button CPassword
         JButton CPassword=new JButton("changing the password");
         CPassword.setPreferredSize(new Dimension(150, 50));
@@ -110,6 +113,7 @@ public class MoreOptions extends JFrame implements ActionListener{
         CPassword.setFont(new Font("Times", Font.BOLD, 20));
         CPassword.setForeground(Color.BLACK);
         CPassword.setBounds(298, 65, 290, 68);
+        CPassword.addActionListener(this);
         
         
         ScreenCenterButtonsP.add(KnowingthebalanceB);
@@ -129,6 +133,7 @@ public class MoreOptions extends JFrame implements ActionListener{
             b[i].setBackground(Background);
             //b[i].setPreferredSize(new Dimension(30, 50));
             WestButtonsP.add(b[i]);
+            b[i].addActionListener(this);
         }
         ScreenP.add(WestButtonsP,BorderLayout.WEST);
         EastButtonsP = new JPanel(new GridLayout(4, 1));
@@ -138,6 +143,7 @@ public class MoreOptions extends JFrame implements ActionListener{
             b[i].setBackground(Background);
             //b[i].setPreferredSize(new Dimension(30, 50));
             EastButtonsP.add(b[i]);
+            b[i].addActionListener(this);
         }
         ScreenP.add(EastButtonsP,BorderLayout.EAST);
         BaseP.add(ScreenP);
@@ -180,6 +186,7 @@ public class MoreOptions extends JFrame implements ActionListener{
             }
             B[i-1].setFont(new Font("Times", Font.BOLD, 15));
             p8.add(B[i-1]);
+            B[i-1].addActionListener(this);
         }
         BaseP.add(p8);
         this.add(BaseP);
