@@ -25,20 +25,21 @@ public class MoreOptions extends JFrame implements ActionListener{
     static MenuBar menu;
     Menu m;
     public MoreOptions(){
+        
         //MenuBar
         menu = new MenuBar();
         m = new Menu("File");
         Menu SubMenuATM = new Menu("ATM");
         MenuItem MenuExit = new MenuItem("Exit");
         MenuItem ChangePassword = new MenuItem("Change Password");
-        MenuItem ChangeAmounts = new MenuItem("Change Amounts");
+        MenuItem ChangeBalance = new MenuItem("Change Balance");
         MenuExit.addActionListener(this);
         ChangePassword.addActionListener(this);
-        ChangeAmounts.addActionListener(this);
+        ChangeBalance.addActionListener(this);
         SubMenuATM.add(ChangePassword);
-        SubMenuATM.add(ChangeAmounts);
+        SubMenuATM.add(ChangeBalance);
         ChangePassword.setFont(new Font("Times", Font.BOLD,15));
-        ChangeAmounts.setFont(new Font("Times", Font.BOLD,15));
+        ChangeBalance.setFont(new Font("Times", Font.BOLD,15));
         m.add(SubMenuATM);
         m.add(MenuExit);
         menu.add(m);
@@ -183,6 +184,12 @@ public class MoreOptions extends JFrame implements ActionListener{
         }
         BaseP.add(p8);
         this.add(BaseP);
+        //set frame
+        this.setTitle("National Bank Of Egypt ATM");
+        this.setVisible(true);
+        this.setSize(700, 700);
+        this.setLocationRelativeTo(null);// to make in cener
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     @Override
