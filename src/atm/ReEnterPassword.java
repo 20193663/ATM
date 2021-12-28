@@ -32,21 +32,16 @@ public class ReEnterPassword extends JFrame implements ActionListener{
     //Streng pass to mace static
     String pass;
     public ReEnterPassword(String pass){
-        this.pass=pass;
-        //MenuBar
+       //MenuBar
         menu = new MenuBar();
         m = new Menu("File");
         Menu SubMenuATM = new Menu("ATM");
         MenuItem MenuExit = new MenuItem("Exit");
-        MenuItem ChangePassword = new MenuItem("Change Password");
-        MenuItem ChangeBalance = new MenuItem("Change Balance");
+        MenuItem Settings = new MenuItem("Settings");
         MenuExit.addActionListener(this);
-        ChangePassword.addActionListener(this);
-        ChangeBalance.addActionListener(this);
-        SubMenuATM.add(ChangePassword);
-        SubMenuATM.add(ChangeBalance);
-        ChangePassword.setFont(new Font("Times", Font.BOLD,15));
-        ChangeBalance.setFont(new Font("Times", Font.BOLD,15));
+        Settings.addActionListener(this);
+        SubMenuATM.add(Settings);
+        Settings.setFont(new Font("Times", Font.BOLD,15));
         m.add(SubMenuATM);
         m.add(MenuExit);
         menu.add(m);
@@ -197,10 +192,13 @@ public class ReEnterPassword extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-                System.out.println(e.getActionCommand());
+        System.out.println(e.getActionCommand());
         System.out.println(e.getSource());
         //.getPassword() to git increbt password
         switch (e.getActionCommand()) {
+            case "Settings":
+                MenuBarOP op =new MenuBarOP();
+                break;
             case "Done":
             case "Enter":
                 //case "<=":

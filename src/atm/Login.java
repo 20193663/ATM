@@ -39,15 +39,11 @@ public class Login extends JFrame implements ActionListener{
         m = new Menu("File");
         Menu SubMenuATM = new Menu("ATM");
         MenuItem MenuExit = new MenuItem("Exit");
-        MenuItem ChangePassword = new MenuItem("Change Password");
-        MenuItem ChangeBalance = new MenuItem("Change Balance");
+        MenuItem Settings = new MenuItem("Settings");
         MenuExit.addActionListener(this);
-        ChangePassword.addActionListener(this);
-        ChangeBalance.addActionListener(this);
-        SubMenuATM.add(ChangePassword);
-        SubMenuATM.add(ChangeBalance);
-        ChangePassword.setFont(new Font("Times", Font.BOLD,15));
-        ChangeBalance.setFont(new Font("Times", Font.BOLD,15));
+        Settings.addActionListener(this);
+        SubMenuATM.add(Settings);
+        Settings.setFont(new Font("Times", Font.BOLD,15));
         m.add(SubMenuATM);
         m.add(MenuExit);
         menu.add(m);
@@ -204,6 +200,9 @@ public class Login extends JFrame implements ActionListener{
         System.out.println(pin.getPassword());
         //.getPassword() to git increbt password
         switch (e.getActionCommand()) {
+            case "Settings":
+                MenuBarOP op =new MenuBarOP();
+                break;
             case "Login":
             case "Enter":
                 //case "<=":
@@ -215,7 +214,8 @@ public class Login extends JFrame implements ActionListener{
                     this.dispose();
                 }
                 else {
-                    JOptionPane.showMessageDialog(this,"Password is incorect","password",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"PIN is incorect","Failed Login",JOptionPane.WARNING_MESSAGE);
+                    pin.setText("");
                 }
                 break;
             case "Clear":
@@ -267,7 +267,8 @@ public class Login extends JFrame implements ActionListener{
                     this.dispose();
                 }
         else {
-             JOptionPane.showMessageDialog(this,"Password is incorect","password",JOptionPane.WARNING_MESSAGE);
+             JOptionPane.showMessageDialog(this,"PIN is incorect","Failed Login",JOptionPane.WARNING_MESSAGE);
+             pin.setText("");
          }
      }
      else if(e.getSource() == b[3] ){
