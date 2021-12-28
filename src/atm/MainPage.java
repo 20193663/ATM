@@ -114,6 +114,7 @@ public class MainPage extends JFrame implements ActionListener{
             b[i].setBackground(Background);
             //b[i].setPreferredSize(new Dimension(30, 50));
             WestButtonsP.add(b[i]);
+            b[i].addActionListener(this);
         }
         ScreenP.add(WestButtonsP,BorderLayout.WEST);
         EastButtonsP = new JPanel(new GridLayout(4, 1));
@@ -123,6 +124,7 @@ public class MainPage extends JFrame implements ActionListener{
             b[i].setBackground(Background);
             //b[i].setPreferredSize(new Dimension(30, 50));
             EastButtonsP.add(b[i]);
+            b[i].addActionListener(this);
         }
         ScreenP.add(EastButtonsP,BorderLayout.EAST);
         BaseP.add(ScreenP);
@@ -148,16 +150,19 @@ public class MainPage extends JFrame implements ActionListener{
             }
             if(i-1>=10){//enter and clear and exit
                 B[i-1].setBounds(420, 50+(i-11)*50, 100, 50);
-                B[i-1].setText(name[i-11]);
+                //B[i-1].setText(name[i-11]);
                 switch (i-1){
                     case 10:
                         B[i-1].setBackground(new Color(0, 153, 0));
+                        B[i-1].setText("Enter");
                         break;
                     case 11:
                         B[i-1].setBackground(new Color(255, 153, 0));
+                        B[i-1].setText("Clear");
                         break;
                     case 12:
                         B[i-1].setBackground(new Color(153, 0, 0));
+                        B[i-1].setText("Exit");
                         break;
                     default:
                         B[i-1].setBackground(Color.WHITE);
@@ -165,6 +170,7 @@ public class MainPage extends JFrame implements ActionListener{
             }
             B[i-1].setFont(new Font("Times", Font.BOLD, 15));
             p8.add(B[i-1]);
+            B[i-1].addActionListener(this);
         }
         BaseP.add(p8);
         this.add(BaseP);
@@ -178,16 +184,30 @@ public class MainPage extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        System.out.println(e.getActionCommand());
+        System.out.println(e.getSource());
         switch (e.getActionCommand()) {
             case "Start":
+            //case "<=":
                 //Login
                 Login Login = new Login();
                 this.dispose();
                 break;
             case "Exit":
+            //case "=>":
                 System.exit(0);
                 break;
         }
+        
+     if(e.getSource() == b[7] )
+     {
+         // getString();
+         Login Login = new Login();
+         this.dispose();
+     }
+     else if(e.getSource() == b[3] ){
+         System.exit(0);
+     }
     }
     
 }
