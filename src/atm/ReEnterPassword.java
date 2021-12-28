@@ -77,7 +77,7 @@ public class ReEnterPassword extends JFrame implements ActionListener{
         ScreenCenterDialogueP.setLayout(null);
         //p4 for  label 
         //label
-        JLabel StartL =new JLabel("Enter Your New Password", SwingConstants.CENTER);//label 2
+        JLabel StartL =new JLabel("Confirm Your New Password", SwingConstants.CENTER);//label 2
         StartL.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
         StartL.setForeground( Color.WHITE);
         StartL.setBounds(50, 0, 500, 68);
