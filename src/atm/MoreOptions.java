@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package atm;
+import static atm.ATM.password;
+import static atm.ATM.Balance;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -200,7 +202,60 @@ public class MoreOptions extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(e.getActionCommand());
+        System.out.println(e.getSource());
+        switch (e.getActionCommand()) {
+            case "Knowing the balance":
+            //case "=>":
+                //Knowingthebalance
+                Knowingthebalance Knowingthebalance =new Knowingthebalance();
+                this.dispose();
+                break;
+            case "Withdrawing":
+            //case "<=":
+                //Withdrawing
+                Withdrawing Withdrawing=new Withdrawing();
+                this.dispose();
+                break;
+            case "Depositing":
+            //case "=>":
+                //Depositing
+                Depositing Depositing=new Depositing();
+                this.dispose();
+                break;
+            case "changing the password":
+            //case "<=":
+                //changing the password
+                CPassword CPassword=new CPassword();
+                this.dispose();
+                break;
+            case "Exit":
+            //case "=>":
+                System.exit(0);
+                break;
+        }
+        if(e.getSource() == b[7] )
+        {
+            // getString();
+            //changing the password
+            CPassword CPassword=new CPassword();
+            this.dispose();
+        }
+        else if(e.getSource() == b[3] ){
+            //Depositing
+            Depositing Depositing=new Depositing();
+            this.dispose();
+        }
+         else if(e.getSource() == b[6] ){
+            //Withdrawing
+            Withdrawing Withdrawing=new Withdrawing();
+            this.dispose();
+        }
+         else if(e.getSource() == b[2] ){
+            //Knowingthebalance
+            Knowingthebalance Knowingthebalance =new Knowingthebalance();
+            this.dispose();
+        }
     }
     
 }

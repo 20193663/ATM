@@ -5,6 +5,8 @@
  */
 package atm;
 
+import static atm.ATM.password;
+import static atm.ATM.Balance;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,7 +18,7 @@ import java.awt.event.ActionListener;
  * @author Dell
  */
 public class Login extends JFrame implements ActionListener{
-    protected static String password ="0000";// password need more work
+//// password need more work
     Color Background =new Color(60, 70, 92);// set Background Color(60, 70, 92)
     //frame stuff
     JPanel BaseP,ScreenP, ScreenHeaderP, ScreenCenterP, ScreenCenterDialogueP, ScreenCenterButtonsP, WestButtonsP,EastButtonsP,p8;
@@ -223,7 +225,7 @@ public class Login extends JFrame implements ActionListener{
             //case "=>":
                 System.exit(0);
                 break;
-    
+            //for numpers
             case "0":
                 pin.setText(pin.getText()+0);
                 break;

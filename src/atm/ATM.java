@@ -17,7 +17,10 @@ public class ATM {
     /**
      * @param args the command line arguments
      */
+    public static String password ="0000";
+    public static double Balance =10000;
     public static void main(String[] args) {
+        
         // TODO code application logic here
         /*
         //set frame
@@ -27,21 +30,23 @@ public class ATM {
         this.setLocationRelativeTo(null);// to make in cener
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         */
-        //Login
-        //Login Login = new Login();
-        //MainPage
+//        //Login
+//        //Login Login = new Login();
+//        //MainPage
         MainPage MainPage = new MainPage();
-        //MoreOptions
-        //op Knowing the balance, withdrawing and depositing, changing the password
+//        //MoreOptions
+//        //op Knowing the balance, withdrawing and depositing, changing the password
 //        MoreOptions MoreOptions=new MoreOptions();
 //        //Knowingthebalance
 //        Knowingthebalance Knowingthebalance =new Knowingthebalance();
 //        //Withdrawing
 //        Withdrawing Withdrawing=new Withdrawing();
-        //Depositing
-        
-        //changing the password
-        
+//        //SetBalance
+//        SetBalance SetBalance= new SetBalance();
+//        //Depositing
+//        Depositing Depositing=new Depositing();
+//        //changing the password
+//        CPassword CPassword=new CPassword();
     }
     
 }

@@ -14,8 +14,8 @@ import java.awt.event.ActionListener;
  *
  * @author Dell
  */
-public class Withdrawing extends JFrame implements ActionListener{
-     Color Background =new Color(60, 70, 92);// set Background Color(60, 70, 92)
+public class SetBalance  extends JFrame implements ActionListener{
+    Color Background =new Color(60, 70, 92);// set Background Color(60, 70, 92)
     //frame stuff
     JPanel BaseP,ScreenP, ScreenHeaderP, ScreenCenterP, ScreenCenterDialogueP, ScreenCenterButtonsP, WestButtonsP,EastButtonsP,p8;
     JLabel WelcomeHeaderL;
@@ -23,10 +23,12 @@ public class Withdrawing extends JFrame implements ActionListener{
     JButton b[]=new JButton[8];
     //Buttons number and enter and clear and exit
     JButton B[]=new JButton[13];
+    //JTextField
+    JTextField BalanceT;
     //MenuBar
     static MenuBar menu;
     Menu m;
-    public Withdrawing(){
+    public SetBalance(){
         //MenuBar
         menu = new MenuBar();
         m = new Menu("File");
@@ -76,69 +78,41 @@ public class Withdrawing extends JFrame implements ActionListener{
         ScreenCenterDialogueP.setLayout(null);
         //p4 for  label 
         //label
-        JLabel StartL =new JLabel("Choose your Withdrawing", SwingConstants.CENTER);//label 2
+        JLabel StartL =new JLabel("Choose your Balance ", SwingConstants.CENTER);//label 2
         StartL.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
         StartL.setForeground( Color.WHITE);
         StartL.setBounds(50, 0, 500, 68);
         ScreenCenterDialogueP.add(StartL);//add label 2
-        //Button B100
-        JButton B100=new JButton("100");
-        B100.setPreferredSize(new Dimension(150, 50));
-        B100.setBackground(Color.white );
-        B100.setFont(new Font("Times", Font.BOLD, 20));
-        B100.setForeground(Color.BLACK);
-        B100.setBounds(0, 65, 290, 68);
-        ScreenCenterDialogueP.add(B100);
-        B100.addActionListener(this);
-        //Button B500
-        JButton B500=new JButton("500");
-        B500.setPreferredSize(new Dimension(150, 50));
-        B500.setBackground(Color.white );
-        B500.setFont(new Font("Times", Font.BOLD, 20));
-        B500.setForeground(Color.BLACK);
-        B500.setBounds(298, 65, 290, 68);
-        ScreenCenterDialogueP.add(B500);
-        B500.addActionListener(this);
+        //TextField
+        BalanceT =new JTextField();
+        BalanceT.setBounds(50, 70, 500, 68);
+        //BalanceT.setColumns(30);
+        BalanceT.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
+        StartL.setLabelFor(BalanceT);
+         ScreenCenterDialogueP.add(BalanceT);//add TextField
+         BalanceT.addActionListener(this);
         //p5 for Button 
         ScreenCenterButtonsP= new JPanel();
         ScreenCenterButtonsP.setBackground(Background);
-        //Button B1000
-        JButton B1000=new JButton("1000");
-        B1000.setPreferredSize(new Dimension(150, 50));
-        B1000.setBackground(Color.white );
-        B1000.setFont(new Font("Times", Font.BOLD, 20));
-        B1000.setForeground(Color.BLACK);
-        B1000.setBounds(0, 0, 290, 68);
-        B1000.addActionListener(this);
-        //Button B2000
-        JButton B2000=new JButton("2000");
-        B2000.setPreferredSize(new Dimension(150, 50));
-        B2000.setBackground(Color.white );
-        B2000.setFont(new Font("Times", Font.BOLD, 20));
-        B2000.setForeground(Color.BLACK);
-        B2000.setBounds(298, 0, 290, 68);
-        B2000.addActionListener(this);
-        //Button B5000
-        JButton B5000=new JButton("5000");
-        B5000.setPreferredSize(new Dimension(150, 50));
-        B5000.setBackground(Color.white );
-        B5000.setFont(new Font("Times", Font.BOLD, 20));
-        B5000.setForeground(Color.BLACK);
-        B5000.setBounds(0, 65, 290, 68);
-        B5000.addActionListener(this);
-        //Button SetBalance
-        JButton SetBalance=new JButton("Set Balance");
-        SetBalance.setPreferredSize(new Dimension(150, 50));
-        SetBalance.setBackground(Color.white );
-        SetBalance.setFont(new Font("Times", Font.BOLD, 20));
-        SetBalance.setForeground(Color.BLACK);
-        SetBalance.setBounds(298, 65, 290, 68);
-        SetBalance.addActionListener(this);
+        //Button ExitB
+        JButton ExitB=new JButton("Exit");
+        ExitB.setPreferredSize(new Dimension(150, 50));
+        ExitB.setBackground(Color.white );
+        ExitB.setFont(new Font("Times", Font.BOLD, 20));
+        ExitB.setForeground(new Color(153, 0, 0));
+        ExitB.setBounds(0, 65, 290, 68);
+        ExitB.addActionListener(this);
+        //Button DoneB
+        JButton DoneB=new JButton("Done");
+        DoneB.setPreferredSize(new Dimension(150, 50));
+        DoneB.setBackground(Color.white );
+        DoneB.setFont(new Font("Times", Font.BOLD, 20));
+        DoneB.setForeground(new Color(0, 153, 0));
+        DoneB.setBounds(298, 65, 290, 68);
+        DoneB.addActionListener(this);
         
-        ScreenCenterButtonsP.add(B1000);
-        ScreenCenterButtonsP.add(B2000);
-        ScreenCenterButtonsP.add(B5000);
-        ScreenCenterButtonsP.add(SetBalance);
+        ScreenCenterButtonsP.add(ExitB);
+        ScreenCenterButtonsP.add(DoneB);
         ScreenCenterButtonsP.setLayout(null);
         //add in ScreenCenterP
         ScreenCenterP.add(ScreenCenterDialogueP);//p3 add ScreenCenterDialogueP for label and textfild 
@@ -221,86 +195,65 @@ public class Withdrawing extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getActionCommand());
         System.out.println(e.getSource());
+        //.getPassword() to git increbt password
         switch (e.getActionCommand()) {
-            case "100":
-            //case "=>":
-                Balance-=100;
-                MoreOptions B100=new MoreOptions();
+            case "Done":
+            case "Enter":
+                //case "<=":
+                Balance-= Double.parseDouble(BalanceT.getText());
+                MoreOptions MoreOptions=new MoreOptions();
                 this.dispose();
                 break;
-            case "500":
-            //case "<=":
-                 Balance-=500;
-                 MoreOptions B500=new MoreOptions();
-                this.dispose();
-                break;
-            case "1000":
-            //case "=>":
-                 Balance-=1000;
-                 MoreOptions B1000=new MoreOptions();
-                this.dispose();
-                break;
-            case "2000":
-            //case "<=":
-                 Balance-=2000;
-                 MoreOptions B2000=new MoreOptions();
-                this.dispose();
-                break;
-            case "5000":
-            //case "<=":
-                 Balance-=5000;
-                 MoreOptions B5000=new MoreOptions();
-                this.dispose();
-                break;
-            case "Set Balance":
-            //case "<=":
-                //SetBalance
-                SetBalance SetBalance=new SetBalance();
-                this.dispose();
+            case "Clear":
+                BalanceT.setText("");
                 break;
             case "Exit":
             //case "=>":
                 System.exit(0);
                 break;
+            //for numpers
+            case "0":
+                BalanceT.setText(BalanceT.getText()+0);
+                break;
+            case "1":
+                BalanceT.setText(BalanceT.getText()+1);
+                break;
+            case "2":
+                BalanceT.setText(BalanceT.getText()+2);
+                break;
+            case "3":
+                BalanceT.setText(BalanceT.getText()+3);
+                break;
+            case "4":
+                BalanceT.setText(BalanceT.getText()+4);
+                break;
+            case "5":
+                BalanceT.setText(BalanceT.getText()+5);
+                break;
+            case "6":
+                BalanceT.setText(BalanceT.getText()+6);
+                break;
+            case "7":
+                BalanceT.setText(BalanceT.getText()+7);
+                break;
+            case "8":
+                BalanceT.setText(BalanceT.getText()+8);
+                break;
+            case "9":
+                BalanceT.setText(BalanceT.getText()+9);
+                break;
         }
-        if(e.getSource() == b[7] )
-        {
-            // getString();
-            //SetBalance
-            SetBalance SetBalance=new SetBalance();
-            this.dispose();
-        }
-        else if(e.getSource() == b[3] ){
-            //5000
-             Balance-=5000;
-             MoreOptions MoreOptions=new MoreOptions();
-            this.dispose();
-        }
-         else if(e.getSource() == b[6] ){
-            //2000
-             Balance-=2000;
-             MoreOptions MoreOptions=new MoreOptions();
-            this.dispose();
-        }
-         else if(e.getSource() == b[2] ){
-            //1000
-             Balance-=1000;
-             MoreOptions MoreOptions=new MoreOptions();
-            this.dispose();
-        }
-        else if(e.getSource() == b[5] ){
-            //500
-             Balance-=500;
-             MoreOptions MoreOptions=new MoreOptions();
-            this.dispose();
-        }
-        else if(e.getSource() == b[1] ){
-            //100
-             Balance-=100;
-             MoreOptions MoreOptions=new MoreOptions();
-            this.dispose();
-        }
-        System.out.println("New Balance = "+Balance);
+        
+     if(e.getSource() == b[7] )
+     {
+         // getString();
+         Balance-= Double.parseDouble(BalanceT.getText());
+         MoreOptions MoreOptions=new MoreOptions();
+         this.dispose();
+     }
+     else if(e.getSource() == b[3] ){
+         BalanceT.setText("");
+     }
     }
     
 }

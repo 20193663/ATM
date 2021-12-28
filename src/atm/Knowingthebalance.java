@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package atm;
+import static atm.ATM.password;
+import static atm.ATM.Balance;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -22,6 +24,8 @@ public class Knowingthebalance extends JFrame implements ActionListener{
     JButton b[]=new JButton[8];
     //Buttons number and enter and clear and exit
     JButton B[]=new JButton[13];
+    //TextField
+    JTextField BalanceT;
     //MenuBar
     static MenuBar menu;
     Menu m;
@@ -81,13 +85,14 @@ public class Knowingthebalance extends JFrame implements ActionListener{
         StartL.setBounds(50, 0, 500, 68);
         ScreenCenterDialogueP.add(StartL);//add label 2
         //TextField
-        JTextField BalanceT =new JTextField();
+        BalanceT =new JTextField();
         BalanceT.setBounds(50, 70, 500, 68);
         //BalanceT.setColumns(30);
         BalanceT.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
         StartL.setLabelFor(BalanceT);
          ScreenCenterDialogueP.add(BalanceT);//add TextField
          BalanceT.addActionListener(this);
+         BalanceT.setText(""+Balance);
         //p5 for Button 
         ScreenCenterButtonsP= new JPanel();
         ScreenCenterButtonsP.setBackground(Background);
@@ -190,7 +195,35 @@ public class Knowingthebalance extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(e.getActionCommand());
+        System.out.println(e.getSource());
+        switch (e.getActionCommand()) {
+            case "Done":
+            case "Enter":
+            //case "<=":
+                MoreOptions MoreOptions=new MoreOptions();
+                this.dispose();
+                break;
+            /*
+                case "Clear":
+                BalanceT.setText("");
+                break;
+            */
+            case "Exit":
+            //case "=>":
+                System.exit(0);
+                break;
+        }
+        
+     if(e.getSource() == b[7] )
+     {
+         // getString();
+         MoreOptions MoreOptions=new MoreOptions();
+         this.dispose();
+     }
+     else if(e.getSource() == b[3] ){
+         System.exit(0);
+     }
     }
     
 }

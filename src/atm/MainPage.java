@@ -188,6 +188,7 @@ public class MainPage extends JFrame implements ActionListener{
         System.out.println(e.getSource());
         switch (e.getActionCommand()) {
             case "Start":
+            case "Enter":
             //case "<=":
                 //Login
                 Login Login = new Login();
