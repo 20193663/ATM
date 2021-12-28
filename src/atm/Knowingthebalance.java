@@ -26,12 +26,6 @@ public class Knowingthebalance extends JFrame implements ActionListener{
     static MenuBar menu;
     Menu m;
     public Knowingthebalance(){
-        //set frame
-        this.setTitle("National Bank Of Egypt ATM");
-        this.setVisible(true);
-        this.setSize(700, 700);
-        this.setLocationRelativeTo(null);// to make in cener
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //MenuBar
         menu = new MenuBar();
         m = new Menu("File");

@@ -26,7 +26,6 @@ public class MainPage extends JFrame implements ActionListener{
     static MenuBar menu;
     Menu m;
     public MainPage(){
-        
         //MenuBar
         menu = new MenuBar();
         m = new Menu("File");

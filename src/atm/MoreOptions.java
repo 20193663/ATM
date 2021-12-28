@@ -25,7 +25,6 @@ public class MoreOptions extends JFrame implements ActionListener{
     static MenuBar menu;
     Menu m;
     public MoreOptions(){
-        
         //MenuBar
         menu = new MenuBar();
         m = new Menu("File");
