@@ -32,6 +32,7 @@ public class ReEnterPassword extends JFrame implements ActionListener{
     //Streng pass to mace static
     String pass;
     public ReEnterPassword(String pass){
+        this.pass=pass;
        //MenuBar
         menu = new MenuBar();
         m = new Menu("File");
