@@ -225,30 +225,35 @@ public class Withdrawing extends JFrame implements ActionListener{
             case "100":
             //case "=>":
                 Balance-=100;
+                JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
                 MoreOptions B100=new MoreOptions();
                 this.dispose();
                 break;
             case "500":
             //case "<=":
                  Balance-=500;
+                 JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
                  MoreOptions B500=new MoreOptions();
                 this.dispose();
                 break;
             case "1000":
             //case "=>":
                  Balance-=1000;
+                 JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
                  MoreOptions B1000=new MoreOptions();
                 this.dispose();
                 break;
             case "2000":
             //case "<=":
                  Balance-=2000;
+                 JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
                  MoreOptions B2000=new MoreOptions();
                 this.dispose();
                 break;
             case "5000":
             //case "<=":
                  Balance-=5000;
+                 JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
                  MoreOptions B5000=new MoreOptions();
                 this.dispose();
                 break;
@@ -273,30 +278,35 @@ public class Withdrawing extends JFrame implements ActionListener{
         else if(e.getSource() == b[3] ){
             //5000
              Balance-=5000;
+             JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
              MoreOptions MoreOptions=new MoreOptions();
             this.dispose();
         }
          else if(e.getSource() == b[6] ){
             //2000
              Balance-=2000;
+             JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
              MoreOptions MoreOptions=new MoreOptions();
             this.dispose();
         }
          else if(e.getSource() == b[2] ){
             //1000
              Balance-=1000;
+             JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
              MoreOptions MoreOptions=new MoreOptions();
             this.dispose();
         }
         else if(e.getSource() == b[5] ){
             //500
              Balance-=500;
+             JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
              MoreOptions MoreOptions=new MoreOptions();
             this.dispose();
         }
         else if(e.getSource() == b[1] ){
             //100
              Balance-=100;
+             JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
              MoreOptions MoreOptions=new MoreOptions();
             this.dispose();
         }

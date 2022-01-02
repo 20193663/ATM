@@ -9,11 +9,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 /**
  *
  * @author Dell
  */
-public class MainPage extends JFrame implements ActionListener{
+public class MainPage extends JFrame implements ActionListener,KeyListener{
   Color Background =new Color(60, 70, 92);// set Background Color(60, 70, 92)
     //frame stuff
     JPanel BaseP,ScreenP, ScreenHeaderP, ScreenCenterP, ScreenCenterDialogueP, ScreenCenterButtonsP, WestButtonsP,EastButtonsP,p8;
@@ -210,5 +212,21 @@ public class MainPage extends JFrame implements ActionListener{
          System.exit(0);
      }
     }
-    
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        //System.out.println(e.getKeyCode());
+        if (e.getKeyCode()==KeyEvent.VK_ENTER){//e.getKeyCode()==KeyEvent.VK_ENTER
+                MoreOptions MoreOptions=new MoreOptions();
+                this.dispose();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
 }

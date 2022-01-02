@@ -6,15 +6,18 @@
 package atm;
 import static atm.ATM.password;
 import static atm.ATM.Balance;
+import static atm.ATM.password;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 /**
  *
  * @author Dell
  */
-public class SetBalance  extends JFrame implements ActionListener{
+public class SetBalance  extends JFrame implements ActionListener,KeyListener{
     Color Background =new Color(60, 70, 92);// set Background Color(60, 70, 92)
     //frame stuff
     JPanel BaseP,ScreenP, ScreenHeaderP, ScreenCenterP, ScreenCenterDialogueP, ScreenCenterButtonsP, WestButtonsP,EastButtonsP,p8;
@@ -86,6 +89,7 @@ public class SetBalance  extends JFrame implements ActionListener{
         BalanceT.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
         StartL.setLabelFor(BalanceT);
          ScreenCenterDialogueP.add(BalanceT);//add TextField
+         BalanceT.addKeyListener(this);
          BalanceT.addActionListener(this);
         //p5 for Button 
         ScreenCenterButtonsP= new JPanel();
@@ -201,6 +205,7 @@ public class SetBalance  extends JFrame implements ActionListener{
             case "Enter":
                 //case "<=":
                 Balance-= Double.parseDouble(BalanceT.getText());
+                JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
                 MoreOptions MoreOptions=new MoreOptions();
                 this.dispose();
                 break;
@@ -255,5 +260,22 @@ public class SetBalance  extends JFrame implements ActionListener{
          BalanceT.setText("");
      }
     }
-    
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        //System.out.println(e.getKeyCode());
+        if (e.getKeyCode()==KeyEvent.VK_ENTER){//e.getKeyCode()==KeyEvent.VK_ENTER
+            Balance-= Double.parseDouble(BalanceT.getText());
+                JOptionPane.showMessageDialog(this,"money is Withdrawing successfully");
+                MoreOptions MoreOptions=new MoreOptions();
+                this.dispose();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
 }

@@ -10,11 +10,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 /**
  *
  * @author Dell
  */
-public class Knowingthebalance extends JFrame implements ActionListener{
+public class Knowingthebalance extends JFrame implements ActionListener,KeyListener{
 
     Color Background =new Color(60, 70, 92);// set Background Color(60, 70, 92)
     //frame stuff
@@ -83,6 +85,7 @@ public class Knowingthebalance extends JFrame implements ActionListener{
         //TextField
         BalanceT =new JTextField();
         BalanceT.setBounds(50, 70, 500, 68);
+        BalanceT.setEditable(false);
         //BalanceT.setColumns(30);
         BalanceT.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
         StartL.setLabelFor(BalanceT);
@@ -107,6 +110,7 @@ public class Knowingthebalance extends JFrame implements ActionListener{
         DoneB.setFont(new Font("Times", Font.BOLD, 20));
         DoneB.setForeground(new Color(0, 153, 0));
         DoneB.setBounds(298, 65, 290, 68);
+        DoneB.addKeyListener(this);
         DoneB.addActionListener(this);
         
         ScreenCenterButtonsP.add(ExitB);
@@ -225,5 +229,21 @@ public class Knowingthebalance extends JFrame implements ActionListener{
          System.exit(0);
      }
     }
-    
+
+  @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        //System.out.println(e.getKeyCode());
+        if (e.getKeyCode()==KeyEvent.VK_ENTER){//e.getKeyCode()==KeyEvent.VK_ENTER
+                MoreOptions MoreOptions=new MoreOptions();
+                this.dispose();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
 }

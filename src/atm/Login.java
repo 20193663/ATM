@@ -11,13 +11,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
 /**
  *
  * @author Dell
  */
-public class Login extends JFrame implements ActionListener{
+public class Login extends JFrame implements ActionListener ,KeyListener{
 //// password need more work
     Color Background =new Color(60, 70, 92);// set Background Color(60, 70, 92)
     //frame stuff
@@ -87,9 +89,10 @@ public class Login extends JFrame implements ActionListener{
         //t1=new TextField("");
         pin = new JPasswordField();//JPasswordField
         pin.setBounds(230, 70, 125, 68);
-        pin.setColumns(4);//pin is 4 num // but don't work it control Field size 
-        pin.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
+        pin.setColumns(2);//pin is 4 num // but don't work it control Field size 
+        pin.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 36));
         PinQL.setLabelFor(pin);
+        pin.addKeyListener(this);
         pin.addActionListener(this);
         //add PinQL and pin
         ScreenCenterDialogueP.add(PinQL);//add label 2
@@ -113,6 +116,7 @@ public class Login extends JFrame implements ActionListener{
         LoginB.setForeground(new Color(0, 153, 0));
         LoginB.setBounds(298, 65, 290, 68);
         LoginB.addActionListener(this);
+        LoginB.addKeyListener(this);
         
         ScreenCenterButtonsP.add(ClearB);
         ScreenCenterButtonsP.add(LoginB);
@@ -182,6 +186,7 @@ public class Login extends JFrame implements ActionListener{
             }
             B[i-1].setFont(new Font("Times", Font.BOLD, 15));
             B[i-1].addActionListener(this);
+            B[i-1].addKeyListener(this);
             p8.add(B[i-1]);
         }
         BaseP.add(p8);
@@ -280,4 +285,28 @@ public class Login extends JFrame implements ActionListener{
     //https://www.geeksforgeeks.org/java-swing-creating-custom-message-dialogs/?ref=lbp need to see add do like
     //https://www.zentut.com/java-swing/creating-password-field-by-using-jpasswordfield-class/
     //
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        //System.out.println(e.getKeyCode());
+        if (e.getKeyCode()==KeyEvent.VK_ENTER){//e.getKeyCode()==KeyEvent.VK_ENTER
+            if((pin.getText()).equals(password)){
+                    System.out.println(pin.getPassword());
+                    MoreOptions MoreOptions=new MoreOptions();
+                    this.dispose();
+                }
+                else {
+                    JOptionPane.showMessageDialog(this,"Invalid password. Try again.","Failed Login", JOptionPane.ERROR_MESSAGE);
+                    pin.setText("");
+                }
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
 }

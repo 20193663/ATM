@@ -6,15 +6,18 @@
 package atm;
 import static atm.ATM.password;
 import static atm.ATM.Balance;
+import static atm.ATM.password;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 /**
  *
  * @author Dell
  */
-public class CPassword extends JFrame implements ActionListener{
+public class CPassword extends JFrame implements ActionListener,KeyListener{
 
     Color Background =new Color(60, 70, 92);// set Background Color(60, 70, 92)
     //frame stuff
@@ -81,10 +84,10 @@ public class CPassword extends JFrame implements ActionListener{
         StartL.setBounds(50, 0, 500, 68);
         ScreenCenterDialogueP.add(StartL);//add label 2
         //TextField
-       BalanceT = new JPasswordField(4);
+       BalanceT = new JPasswordField(2);
         BalanceT.setBounds(230, 70, 125, 68);
         //BalanceT.setColumns(30);
-        BalanceT.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
+        BalanceT.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 36));
         StartL.setLabelFor(BalanceT);
          ScreenCenterDialogueP.add(BalanceT);//add TextField
          BalanceT.addActionListener(this);
@@ -255,4 +258,27 @@ public class CPassword extends JFrame implements ActionListener{
      }
     }
     
+@Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        //System.out.println(e.getKeyCode());
+        if (e.getKeyCode()==KeyEvent.VK_ENTER){//e.getKeyCode()==KeyEvent.VK_ENTER
+            if((BalanceT.getText()).equals(password)){
+                    System.out.println(BalanceT.getPassword());
+                    MoreOptions MoreOptions=new MoreOptions();
+                    this.dispose();
+                }
+                else {
+                    JOptionPane.showMessageDialog(this,"Invalid password. Try again.","Failed Login", JOptionPane.ERROR_MESSAGE);
+                    BalanceT.setText("");
+                }
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
 }
