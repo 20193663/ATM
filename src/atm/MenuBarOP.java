@@ -26,14 +26,14 @@ public class MenuBarOP extends JFrame implements ActionListener{
     //user and pass
     String user="admin",pass="admin";
     public MenuBarOP(){
-        BaseP =new JPanel(new GridLayout(6, 1, 5, 5));
+        BaseP =new JPanel(new GridLayout(7, 1, 5, 5));
         BaseP.setBackground(Background);
         
         p1=new JPanel();
         p1.setBackground(Background);
         User =new JLabel("User Name:");
         User.setForeground(Color.WHITE);
-        UserT = new JTextField(20);
+        UserT = new JTextField("admin",20);
         User.setLabelFor(UserT);
         p1.add(User);p1.add(UserT);
         UserT.addActionListener(this);
@@ -88,6 +88,9 @@ public class MenuBarOP extends JFrame implements ActionListener{
         BaseP.add(p1);
         BaseP.add(p2);
         BaseP.add(p3);
+        JLabel note = new JLabel("Note: keep null if you wouldn't to change.",SwingConstants.CENTER);
+        note.setForeground(Color.red);
+        BaseP.add(note);
         BaseP.add(p4);
         BaseP.add(p5);
         BaseP.add(p6);
@@ -116,7 +119,7 @@ public class MenuBarOP extends JFrame implements ActionListener{
                     UserT.setEditable(false);
                 }
                 else{
-                    JOptionPane.showMessageDialog(this,"Password or User Name is incorect","Failed Login",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"Invalid password or User Name. Try again.","Failed Login", JOptionPane.ERROR_MESSAGE);
                     PassT.setText("");
                     UserT.setText("");
                 }

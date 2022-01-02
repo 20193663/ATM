@@ -83,10 +83,11 @@ public class Login extends JFrame implements ActionListener{
         PinQL.setBounds(50, 0, 500, 68);
         //TextField
         //https://www.zentut.com/java-swing/creating-password-field-by-using-jpasswordfield-class/
+        //https://docs.oracle.com/javase/tutorial/uiswing/components/passwordfield.html
         //t1=new TextField("");
         pin = new JPasswordField();//JPasswordField
         pin.setBounds(230, 70, 125, 68);
-        pin.setColumns(4);//pin is 4 num
+        pin.setColumns(4);//pin is 4 num // but don't work it control Field size 
         pin.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
         PinQL.setLabelFor(pin);
         pin.addActionListener(this);
@@ -197,7 +198,7 @@ public class Login extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getActionCommand());
         System.out.println(e.getSource());
-        System.out.println(pin.getPassword());
+        System.out.println(pin.getPassword()); //getPassword() it used char
         //.getPassword() to git increbt password
         switch (e.getActionCommand()) {
             case "Settings":
@@ -214,7 +215,7 @@ public class Login extends JFrame implements ActionListener{
                     this.dispose();
                 }
                 else {
-                    JOptionPane.showMessageDialog(this,"PIN is incorect","Failed Login",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"Invalid password. Try again.","Failed Login", JOptionPane.ERROR_MESSAGE);
                     pin.setText("");
                 }
                 break;
@@ -267,7 +268,7 @@ public class Login extends JFrame implements ActionListener{
                     this.dispose();
                 }
         else {
-             JOptionPane.showMessageDialog(this,"PIN is incorect","Failed Login",JOptionPane.WARNING_MESSAGE);
+             JOptionPane.showMessageDialog(this,"Invalid password. Try again.","Failed Login", JOptionPane.ERROR_MESSAGE);
              pin.setText("");
          }
      }
