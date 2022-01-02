@@ -50,8 +50,12 @@ public class MenuBarOP extends JFrame implements ActionListener{
         p3=new JPanel();
         p3.setBackground(Background);
         Login=new JButton("Login");
+        Login.setBackground(new Color(0, 153, 0));
+        Login.setForeground( Color.BLACK);
         Login.addActionListener(this);
         Close=new JButton("Close");
+        Close.setBackground(new Color(153, 0, 0));
+        Close.setForeground( Color.BLACK);
         Close.addActionListener(this);
         p3.add(Close);p3.add(Login);
         
@@ -79,8 +83,12 @@ public class MenuBarOP extends JFrame implements ActionListener{
         p6.setBackground(Background);
         Done=new JButton("Done");
         Done.setEnabled(false);
+        Done.setBackground(new Color(0, 153, 0));
+        Done.setForeground( Color.BLACK);
         Done.addActionListener(this);
         Exit=new JButton("Exit");
+        Exit.setBackground(new Color(153, 0, 0));
+        Exit.setForeground( Color.BLACK);
         Exit.setEnabled(false);
         Exit.addActionListener(this);
         p6.add(Exit);p6.add(Done);
@@ -88,8 +96,8 @@ public class MenuBarOP extends JFrame implements ActionListener{
         BaseP.add(p1);
         BaseP.add(p2);
         BaseP.add(p3);
-        JLabel note = new JLabel("Note: keep null if you wouldn't to change.",SwingConstants.CENTER);
-        note.setForeground(Color.red);
+        JLabel note = new JLabel("*Note: keep null if you wouldn't to change.",SwingConstants.CENTER);
+        note.setForeground(Color.RED);//new Color(153, 0, 0) or Color.RED
         BaseP.add(note);
         BaseP.add(p4);
         BaseP.add(p5);
@@ -98,9 +106,10 @@ public class MenuBarOP extends JFrame implements ActionListener{
         //set frame
         this.setTitle("Settings");
         this.setVisible(true);
-        this.setSize(350, 300);
+        this.setSize(340, 300);
         this.setLocationRelativeTo(null);// to make in cener
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setResizable(false);// mack size not Editable
     }
 
     @Override

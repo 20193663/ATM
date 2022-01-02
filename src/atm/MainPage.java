@@ -176,6 +176,7 @@ public class MainPage extends JFrame implements ActionListener{
         this.setSize(700, 700);
         this.setLocationRelativeTo(null);// to make in cener
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);// mack size not Editable
     }
 
     @Override

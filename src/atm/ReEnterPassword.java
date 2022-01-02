@@ -84,8 +84,8 @@ public class ReEnterPassword extends JFrame implements ActionListener{
         StartL.setBounds(50, 0, 500, 68);
         ScreenCenterDialogueP.add(StartL);//add label 2
         //TextField
-        BalanceT = new JPasswordField();
-        BalanceT.setBounds(50, 70, 500, 68);
+        BalanceT = new JPasswordField(4);
+        BalanceT.setBounds(230, 70, 125, 68);
         //BalanceT.setColumns(30);
         BalanceT.setFont(new Font("Times", Font.PLAIN+Font.BOLD, 30));
         StartL.setLabelFor(BalanceT);
@@ -189,6 +189,7 @@ public class ReEnterPassword extends JFrame implements ActionListener{
         this.setSize(700, 700);
         this.setLocationRelativeTo(null);// to make in cener
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);// mack size not Editable
     }
 
     @Override
